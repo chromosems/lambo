@@ -25,3 +25,5 @@ Route::post('cars/{id}/photos', 'CarController@addPhoto');
 
 Route::get('/events', 'EventController@index');
 
+Route::resource('supplier', 'SupplierController');
+
