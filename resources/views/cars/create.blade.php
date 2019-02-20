@@ -3,17 +3,17 @@
 @section('content')
 
     <div class="container">
-        <div class="card">
-            <div class="card-header">
-                <h3>Add Cars</h3>
-            </div>
+        <div class="card-header">
+            <h3>Add Cars</h3>
         </div>
-        <br>
-        <div class="col-md-12">
+    </div>
 
-            <a href="#">
-                <button type="button" class="btn btn-outline-info btn-sl m-3">View Cars</button>
-            </a>
+    <div class="col-md-12">
+
+        <a href="#">
+            <button type="button" class="btn btn-outline-info btn-sl m-3">View Cars</button>
+        </a>
+        <div class="card">
             @if ($errors->any())
                 <div class="alert alert-danger">
                     <ul>
@@ -21,40 +21,43 @@
                             <li>{{ $error }}</li>
                         @endforeach
                     </ul>
-                </div>
+                </div><br/>
             @endif
-            @if(session()->has('message'))
+
+            @if(session()->get('success'))
                 <div class="alert alert-success">
-                    {{ session()->get('message') }}
-                </div>
+                    {{ session()->get('success') }}
+                </div><br/>
             @endif
-            <div class="card">
+            <div class="col-md-12">
+
                 <div class="container">
                     <form action="{{route('cars.store')}}" method="post" enctype="multipart/form-data">
                         @csrf
 
 
-                         <div class="col-sm-12">
-                             <div class="row">
-                                 <div class="col-sm-6">
-                        <div class="form-group">
-                            <label>Fuel Type</label>
-                            <select class="custom-select" name="fuel">
-                                <option value="petrol">Petrol</option>
-                                <option value="petrol">Diesel</option>
+                        <div class="col-sm-12">
+                            <div class="row">
+                                <div class="col-sm-6">
+                                    <div class="form-group">
+                                        <label>Fuel Type</label>
+                                        <select class="custom-select" name="fuel">
+                                            <option value="petrol">Petrol</option>
+                                            <option value="petrol">Diesel</option>
 
-                            </select>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-sm-6">
+                                    <div class="form-group">
+                                        <label>Car name</label>
+                                        <input type="text" name="car_name" class="form-control"
+                                               placeholder="car name">
+                                    </div>
+                                </div>
+                            </div>
+
                         </div>
-                         </div>
-                                 <div class="col-sm-6">
-                                     <div class="form-group">
-                                         <label>Car name</label>
-                                         <input type="text" name="car_name" class="form-control" placeholder="car name">
-                                     </div>
-                                 </div>
-                             </div>
-
-                         </div>
                         <br>
                         <div class="form-group">
                             <label>Transmission</label>
@@ -112,6 +115,12 @@
                             <input type="text" name="year" class="form-control" placeholder="year">
                         </div>
 
+                        <div class="form-group">
+                            <label>Description</label>
+                            <textarea type="text" name="description" id="description" class="form-control" rows="8"
+                                      cols="20" ;></textarea>
+                        </div>
+
                         <button type="submit" class="btn btn-primary">Submit</button>
                         <hr>
                     </form>
@@ -119,8 +128,5 @@
             </div>
         </div>
     </div>
-
-
-
 
 @endsection

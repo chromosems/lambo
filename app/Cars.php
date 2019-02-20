@@ -17,6 +17,7 @@ class Cars extends Model
             'wheel_position',
             'make',
             'model',
-            'year'
+            'year',
+            'description'
         ];
 }

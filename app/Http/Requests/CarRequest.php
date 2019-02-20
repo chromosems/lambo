@@ -27,14 +27,15 @@ class CarRequest extends FormRequest
             /*
              * validation
              */
-            'car_name'=>'required',
+            'car_name' => 'required',
             'fuel' => 'required',
             'transmission' => 'required',
             'wheel_drive' => 'required',
             'wheel_position' => 'required',
             'model' => 'required',
             'make' => 'required',
-            'year' => 'required'
+            'year' => 'required',
+            'description' => 'required'
         ];
     }
 }
