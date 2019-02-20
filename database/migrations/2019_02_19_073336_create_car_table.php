@@ -15,7 +15,7 @@ class CreateCarTable extends Migration
     {
         Schema::create('cars', function (Blueprint $table) {
             $table->increments('id')->unsigned();
-            $table->string('car_type');
+            $table->string('car_name');
             $table->string('transmission');
             $table->string('wheel_drive');
             $table->string('wheel_position');

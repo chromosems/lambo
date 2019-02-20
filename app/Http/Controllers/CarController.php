@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Http\Requests;
+use App\Cars;
 
 class CarController extends Controller
 {
@@ -36,9 +38,13 @@ class CarController extends Controller
      * @param  \Illuminate\Http\Request $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Requests\CarRequest $request)
     {
-        //
+        /*
+         * inserting to the database
+         */
+        Cars::create($request->all());
+        return redirect ('cars/create')->with('success', 'A new car has been created');
     }
 
     /**
