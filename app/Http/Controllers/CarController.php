@@ -16,6 +16,10 @@ class CarController extends Controller
     public function index()
     {
         //
+ $cars = Cars::all();
+ return view('cars.index',compact('cars'));
+
+
     }
 
     /**
@@ -44,7 +48,7 @@ class CarController extends Controller
          * inserting to the database
          */
         Cars::create($request->all());
-        return redirect ('cars/create')->with('success', 'A new car has been created');
+        return redirect('cars/create')->with('success', 'A new car has been created');
     }
 
     /**

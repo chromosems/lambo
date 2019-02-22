@@ -35,6 +35,7 @@ class CarRequest extends FormRequest
             'model' => 'required',
             'make' => 'required',
             'year' => 'required',
+            'amount'=>'required',
             'description' => 'required'
         ];
     }

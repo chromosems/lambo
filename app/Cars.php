@@ -18,6 +18,7 @@ class Cars extends Model
             'make',
             'model',
             'year',
+            'amount',
             'description'
         ];
 }

@@ -23,7 +23,8 @@ class CreateCarTable extends Migration
             $table->string('fuel');
             $table->string('make');
             $table->string('year');
-            $table->string('description');
+            $table->text('description');
+            $table->string('amount');
             $table->timestamps();
         });
     }

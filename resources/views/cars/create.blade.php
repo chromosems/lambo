@@ -10,7 +10,7 @@
 
     <div class="col-md-12">
 
-        <a href="#">
+        <a href="{{route('cars.index')}}">
             <button type="button" class="btn btn-outline-info btn-sl m-3">View Cars</button>
         </a>
         <div class="card">
@@ -113,6 +113,11 @@
                         <div class="form-group">
                             <label>Year</label><br>
                             <input type="text" name="year" class="form-control" placeholder="year">
+                        </div>
+
+                        <div class="form-group">
+                            <label>Amount</label>
+                            <input type="text" class="form-control" name="amount" placeholder="cost">
                         </div>
 
                         <div class="form-group">
