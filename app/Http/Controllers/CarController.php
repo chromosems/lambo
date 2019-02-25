@@ -16,8 +16,8 @@ class CarController extends Controller
     public function index()
     {
         //
- $cars = Cars::all();
- return view('cars.index',compact('cars'));
+        $cars = Cars::all();
+        return view('cars.index', compact('cars'));
 
 
     }
@@ -59,7 +59,8 @@ class CarController extends Controller
      */
     public function show($id)
     {
-        //
+        $cars = Cars::find($id)->first();
+        return view('cars.show', compact('cars'));
     }
 
     /**
