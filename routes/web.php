@@ -20,4 +20,5 @@ Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 
 Route::resource('cars', CarController::class);
+Route::photo('{id}/photos', 'CarController@addPhoto');
 

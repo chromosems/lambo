@@ -4,7 +4,7 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Cars extends Model
+class Car extends Model
 {
     protected $table = 'cars';
     protected $fillable =
@@ -21,4 +21,12 @@ class Cars extends Model
             'amount',
             'description'
         ];
+
+    /*
+     * A car listing card  is composed of many photos
+     */
+    public function photos()
+    {
+        return $this->hasmany('App\Photo');
+    }
 }

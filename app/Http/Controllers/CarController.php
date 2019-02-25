@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Http\Requests;
-use App\Cars;
+use App\Car;
 
 class CarController extends Controller
 {
@@ -16,7 +16,7 @@ class CarController extends Controller
     public function index()
     {
         //
-        $cars = Cars::all();
+        $cars = Car::all();
         return view('cars.index', compact('cars'));
 
 
@@ -47,7 +47,7 @@ class CarController extends Controller
         /*
          * inserting to the database
          */
-        Cars::create($request->all());
+        Car::create($request->all());
         return redirect('cars/create')->with('success', 'A new car has been created');
     }
 
@@ -59,10 +59,14 @@ class CarController extends Controller
      */
     public function show($id)
     {
-        $cars = Cars::find($id)->first();
+        $cars = Car::find($id);
         return view('cars.show', compact('cars'));
     }
 
+    public function addPhoto(Requests $request)
+    {
+        return 'working on it....';
+    }
     /**
      * Show the form for editing the specified resource.
      *
