@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Http\Requests;
+use App\Http\Requests\CarRequest;
 use App\Car;
 
 class CarController extends Controller
@@ -15,7 +15,6 @@ class CarController extends Controller
      */
     public function index()
     {
-        //
         $cars = Car::all();
         return view('cars.index', compact('cars'));
 
@@ -42,7 +41,7 @@ class CarController extends Controller
      * @param  \Illuminate\Http\Request $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Requests\CarRequest $request)
+    public function store(CarRequest $request)
     {
         /*
          * inserting to the database
@@ -59,14 +58,24 @@ class CarController extends Controller
      */
     public function show($id)
     {
-        $cars = Car::find($id);
-        return view('cars.show', compact('cars'));
+        $car = Car::find($id);
+        return view('cars.show', compact('car'));
     }
 
-    public function addPhoto(Requests $request)
+
+    public function addPhoto($id,Request $request)
     {
-        return 'working on it....';
+        $file = $request->file('file');
+
+        $name = time() . $file->getClientOriginalName();
+
+        $file->move('uploads/photos', $name);
+
+        $car = Car::find($id);
+
+        $car->photos()->create(['path' => "/uploads/photos/{$name}"]);
     }
+
     /**
      * Show the form for editing the specified resource.
      *

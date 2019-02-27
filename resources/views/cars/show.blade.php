@@ -1,78 +1,69 @@
 @extends('layouts.app')
 
 @section('content')
+
     <div class="container">
-        {{--<div class="col-sm-12">--}}
-        <div class="row">
-            <div class="col-sm-6">
-                <center><h4>Car Details</h4></center>
-                <div class="card">
-                    <div class="col-md-12">
-                        <h5>Car Name</h5> <h6>{{$car->car_name}}</h6><br>
-                        <br>
-                        <h5>Amount</h5> <h6>{{$car->amount}}</h6>
+        @foreach($car->photos as $photo)
+            <div class="card">
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col=sm-4">
+                            <img src="{{$photo->path}}" alt="" width="300px">
+                        </div>
+                        @endforeach
 
-                        <h5>Transmission</h5>
-                        {{$car->transmission}}<br>
+                        <div class="col-sm-8">
+                            <center><h4>Car Details</h4></center>
+                            <h5>Car Name</h5> <h6>{{$car->car_name}}</h6><br>
+                            <br>
+                            <h5>Amount</h5> <h6>{{$car->amount}}</h6>
 
-                        <br>
+                            <h5>Transmission</h5>
+                            {{$car->transmission}}<br>
 
-                        <h5>wheel Drive</h5>
-                        {{$car->wheel_drive}}<br>
+                            <br>
+
+                            <h5>wheel Drive</h5>
+                            {{$car->wheel_drive}}<br>
 
 
-                        <br>
+                            <br>
 
-                        <h5>Wheel Position</h5>
-                        {{$car->wheel_position}}<br>
+                            <h5>Wheel Position</h5>
+                            {{$car->wheel_position}}<br>
 
-                    </div>
-                </div>
-            </div>
-        </div>
-        <br>
 
-        <div class="row">
-            <br>
-            <hr>
-            <div class="col-sm-10">
-                <div class="card">
-                    <div class="container">
-                        <h5> make</h5>
-                        {{$car->make}}<br>
-                        <br>
-                        <h5> Model</h5>
-                        {{$car->model}}<br>
-                        <br>
-                        <h5>Fuel</h5>
-                        {{$car->fuel}}
-                        <br>
-                        <h5>Year</h5>
-                        {{$car->year}}<br>
+                            <h5> make</h5>
+                            {{$car->make}}<br>
+                            <br>
+                            <h5> Model</h5>
+                            {{$car->model}}<br>
+                            <br>
+                            <h5>Fuel</h5>
+                            {{$car->fuel}}
+                            <br>
+                            <h5>Year</h5>
+                            {{$car->year}}<br>
 
-                        <h5>Description</h5>
-                        {{$car->description}}
+                            <h5>Description</h5>
+                            {{$car->description}}
 
+
+                        </div>
 
                     </div>
                 </div>
+
+                <form id="addPhotosForm" action="/cars/{{$car->id}}/photos" method="POST" class="dropzone"
+                      enctype="multipart/form-data">
+                    @csrf
+
+                </form>
             </div>
 
+            @endsection
 
-        </div>
-        <br>
-
-        <form action="/{{$car->id}}/photos" method="POST" class="dropzone" enctype="multipart/form-data"
-              id="my-awesome-dropzone">
-            @csrf
-            {{--<input type="file" name="file" />--}}
-
-        </form>
-    </div>
-
-@endsection
-
-@section('script.footer')
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/dropzone/5.5.1/dropzone.js"></script>
+        @section('script.footer')
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/dropzone/5.5.1/dropzone.js"></script>
 @endsection
 
