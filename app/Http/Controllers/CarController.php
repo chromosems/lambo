@@ -63,8 +63,9 @@ class CarController extends Controller
     }
 
 
-    public function addPhoto($id,Request $request)
+    public function addPhoto($id, Request $request)
     {
+
         $file = $request->file('file');
 
         $name = time() . $file->getClientOriginalName();

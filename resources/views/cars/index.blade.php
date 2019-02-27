@@ -8,12 +8,15 @@
                 <div class="card">
                     <div class="container">
                         @foreach($cars as $car)
-                            <h3>
-                                <center>Car Images Here</center>
-                            </h3>
+
                             <h5>Car Name</h5> <a href="{{action('CarController@show',$car->id)
                             }}"><h3>{{$car->car_name}}</h3></a>
 
+                            @if (count($car->photos) > 0)
+                                <img src="{{asset($car->photos->first()->path) }}" alt="" width="400px"/>
+                            @else
+                                <img src="{{asset('uploads/home.jpeg')}}" alt="" width="200px"/>
+                            @endif
                             <br>
                             <h5>Amount</h5><h6>{{$car->amount}}</h6>
                             <br>
@@ -33,7 +36,6 @@
         </div>
     </div>
 
-    {{--</div>--}}
-    {{--</div>--}}
+
 
 @endsection

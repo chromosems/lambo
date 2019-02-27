@@ -6,29 +6,28 @@
         <div class="card-header">
             <h3>Add Cars</h3>
         </div>
-    </div>
 
     <div class="col-md-12">
+        @if ($errors->any())
+            <div class="alert alert-danger">
+                <ul>
+                    @foreach ($errors->all() as $error)
+                        <li>{{ $error }}</li>
+                    @endforeach
+                </ul>
+            </div><br/>
+        @endif
 
+        @if(session()->get('success'))
+            <div class="alert alert-success">
+                {{ session()->get('success') }}
+            </div><br/>
+        @endif
         <a href="{{route('cars.index')}}">
             <button type="button" class="btn btn-outline-info btn-sl m-3">View Cars</button>
         </a>
         <div class="card">
-            @if ($errors->any())
-                <div class="alert alert-danger">
-                    <ul>
-                        @foreach ($errors->all() as $error)
-                            <li>{{ $error }}</li>
-                        @endforeach
-                    </ul>
-                </div><br/>
-            @endif
 
-            @if(session()->get('success'))
-                <div class="alert alert-success">
-                    {{ session()->get('success') }}
-                </div><br/>
-            @endif
             <div class="col-md-12">
 
                 <div class="container">
@@ -133,5 +132,5 @@
             </div>
         </div>
     </div>
-
+    </div>
 @endsection
