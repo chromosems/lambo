@@ -11,11 +11,11 @@ class CarController extends Controller
     /**
      * Display a listing of the resource.
      *
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Http\Responnse
      */
     public function index()
     {
-        $cars = Car::all();
+        $cars = Car::paginate(2);
         return view('cars.index', compact('cars'));
 
 

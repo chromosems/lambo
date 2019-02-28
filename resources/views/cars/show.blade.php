@@ -1,9 +1,18 @@
 @extends('layouts.app')
 
 @section('content')
-
     <div class="container">
-        <button class="btn btn-outline-success btn-sl m-3" type="button">Buy This a car</button>
+
+        <div class="row">
+            <div class="col-sm-6">
+                <button class="btn btn-success " type="button">Buy this Car</button>
+            </div>
+            <div class="col-sm-6 text-right">
+                <button class="btn btn-info text-right" type="button">Rent this car</button>
+            </div>
+        </div>
+
+        <br>
         <div class="card">
             <div class="card-body">
                 <div class="row">
@@ -53,8 +62,19 @@
                     </div>
                 </div>
             </div>
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-4">
+                        <button href="#" class="btn btn-primary">Edit</button>
+                    </div>
+                    <div class="ml-auto">
+                        <button href="#" class="btn btn-danger btn-sl m-3">Delete</button>
+                    </div>
+                </div>
+            </div>
+            <br>
         </div>
-        <button class="btn btn-outline-info btn-sl m-3" type="button">Rent this car</button>
+
 
         <br>
         <form id="addPhotosForm" action="/cars/{{$car->id}}/photos" method="POST" class="dropzone"
@@ -68,11 +88,11 @@
 @section('script.footer')
     <script src="https://cdnjs.cloudflare.com/ajax/libs/dropzone/5.5.1/dropzone.js"></script>
     {{--<script>--}}
-        {{--Dropezone.options.addPhotosForm = {--}}
-            {{--paramName: 'photos',--}}
-            {{--maxFilesize: 3,--}}
-            {{--acceptedFiles: '.jpg, .jpeg, .png, .bmp '--}}
-        {{--}--}}
+    {{--Dropezone.options.addPhotosForm = {--}}
+    {{--paramName: 'photos',--}}
+    {{--maxFilesize: 3,--}}
+    {{--acceptedFiles: '.jpg, .jpeg, .png, .bmp '--}}
+    {{--}--}}
     {{--</script>--}}
 @endsection
 

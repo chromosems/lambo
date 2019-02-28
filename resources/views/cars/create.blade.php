@@ -8,6 +8,7 @@
         </div>
 
     <div class="col-md-12">
+        <hr>
         @if ($errors->any())
             <div class="alert alert-danger">
                 <ul>
@@ -27,6 +28,7 @@
             <button type="button" class="btn btn-outline-info btn-sl m-3">View Cars</button>
         </a>
         <div class="card">
+            <div class="card-body">
 
             <div class="col-md-12">
 
@@ -126,10 +128,10 @@
                         </div>
 
                         <button type="submit" class="btn btn-primary">Submit</button>
-                        <hr>
                     </form>
                 </div>
             </div>
+        </div>
         </div>
     </div>
     </div>
