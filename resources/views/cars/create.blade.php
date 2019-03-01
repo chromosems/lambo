@@ -3,12 +3,10 @@
 @section('content')
 
     <div class="container">
-        <div class="card-header">
             <h3>Add Cars</h3>
-        </div>
 
     <div class="col-md-12">
-        <hr>
+
         @if ($errors->any())
             <div class="alert alert-danger">
                 <ul>
@@ -24,9 +22,12 @@
                 {{ session()->get('success') }}
             </div><br/>
         @endif
+            <div class="ccol-sm-6 text-right">
         <a href="{{route('cars.index')}}">
-            <button type="button" class="btn btn-outline-info btn-sl m-3">View Cars</button>
+            <button type="button" class="btn btn-primary btn-sl m-3">View Cars</button>
         </a>
+            </div>
+
         <div class="card">
             <div class="card-body">
 
