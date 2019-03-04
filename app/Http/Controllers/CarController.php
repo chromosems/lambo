@@ -13,6 +13,12 @@ class CarController extends Controller
      *
      * @return \Illuminate\Http\Responnse
      */
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
+
     public function index()
     {
         $cars = Car::paginate(2);
@@ -86,6 +92,9 @@ class CarController extends Controller
     public function edit($id)
     {
         //
+        $car = Car::find($id);
+        return view('car.edit', compact('car'));
+
     }
 
     /**

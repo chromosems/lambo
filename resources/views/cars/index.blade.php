@@ -5,6 +5,7 @@
 
     <div class="container">
         <h2>Car Listing</h2>
+
         <?php echo $cars->render();?>
         <div class="card">
             <div class="card-body">

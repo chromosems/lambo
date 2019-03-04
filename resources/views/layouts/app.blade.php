@@ -19,6 +19,9 @@
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet" type="text/css">
     <!--dropzone-->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/dropzone/5.5.1/dropzone.css">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css"
+          integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
@@ -28,7 +31,7 @@
     <nav class="navbar navbar-expand-md navbar-light navbar-laravel">
         <div class="container">
             <a class="navbar-brand" href="/home">
-                {{ config('CBMS', 'CBMS') }}
+                {{ config('CMIS', 'CMIS') }}
             </a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
                     aria-controls="navbarSupportedContent" aria-expanded="false"
@@ -39,8 +42,14 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <!-- Left Side Of Navbar -->
                 <ul class="navbar-nav mr-auto">
-                    <a class="nav-link" href="{{route('cars.create')}}">Create A car Listing</a>
-                    <a class="nav-link" href="{{route('cars.index')}}">Available Cars</a>
+                    <a class="nav-link" href="{{route('cars.create')}}"><span style="color : dodgerblue"><i class="fa
+                     fa-list"></i> </span>
+                        Create A
+                        car
+                        Listing</a>
+                    <a class="nav-link" href="{{route('cars.index')}}"><span style="color: dodgerblue"><i class="fa
+                    fa-taxi"></i> </span>
+                        Available Cars</a>
 
                 </ul>
 
