@@ -34,8 +34,7 @@
                     <div class="col-md-12">
 
                         <div class="container">
-                            <form action="{{route('cars.update',$car->id)}}" method="post" @method('PATCH')
-                                  enctype="multipart/form-data">
+                            <form action="{{route('cars.update',$car->id)}}" method="post"> @method('PATCH')
                                 @csrf
 
 
@@ -55,7 +54,7 @@
                                             <div class="form-group">
                                                 <label>Car name</label>
                                                 <input type="text" name="car_name" class="form-control"
-                                                       placeholder="car name">
+                                                       placeholder="car name" value={{$car->car_name}}>
                                             </div>
                                         </div>
                                     </div>
@@ -64,7 +63,7 @@
                                 <br>
                                 <div class="form-group">
                                     <label>Transmission</label>
-                                    <select class="custom-select" name="transmission">
+                                    <select class="custom-select" name="transmission" value={{$car->transmission}}>
                                         <option class="Automatic">Automatic</option>
                                         <option class="Manual">Manual</option>
                                     </select>
@@ -74,7 +73,8 @@
                                         <div class="col-sm-6">
                                             <div class="form-group">
                                                 <label>Wheel Drive</label>
-                                                <select class="custom-select" name="wheel_drive">
+                                                <select class="custom-select" name="wheel_drive"
+                                                        value={{$car->wheel_drive}}>
                                                     <option value="2WD">2WD</option>
                                                     <option value="4WD">4WD</option>
                                                     <option value="full time">full time</option>
@@ -85,7 +85,8 @@
                                         <div class="col-sm-6">
                                             <div class="form-group">
                                                 <label>Wheel Position</label>
-                                                <select class="custom-select" name="wheel_position">
+                                                <select class="custom-select" name="wheel_position"
+                                                        value={{$car->wheel_position}}>
                                                     <option value="right">Right</option>
                                                     <option value="left">Left</option>
                                                 </select>
@@ -97,7 +98,7 @@
 
                                 <div class="form-group">
                                     <label>Car Model</label><br>
-                                    <select id="models" name="model" class="form-control">
+                                    <select id="models" name="model" class="form-control" value={{$car->model}}>
                                         @foreach(\App\Http\type\type::all() as $type)
                                             <option value="{{$type}}">{{$type}}</option>
                                         @endforeach
@@ -106,7 +107,7 @@
 
                                 <div class="form-group">
                                     <label>Make</label><br>
-                                    <select id="make" name="make" class="form-control">
+                                    <select id="make" name="make" class="form-control" value={{$car->make}}>
                                         @foreach(App\Http\make\make::all() as $makes)
                                             <option value="{{$makes}}">{{$makes}}</option>
                                         @endforeach
@@ -115,18 +116,21 @@
 
                                 <div class="form-group">
                                     <label>Year</label><br>
-                                    <input type="text" name="year" class="form-control" placeholder="year">
+                                    <input type="text" name="year" class="form-control" placeholder="year"
+                                           value={{$car->year}}>
                                 </div>
 
                                 <div class="form-group">
                                     <label>Amount</label>
-                                    <input type="text" class="form-control" name="amount" placeholder="cost">
+                                    <input type="text" class="form-control" name="amount" placeholder="cost"
+                                           value={{$car->amount}}>
                                 </div>
 
                                 <div class="form-group">
                                     <label>Description</label>
-                                    <textarea type="text" name="description" id="description" class="form-control" rows="8"
-                                              cols="20" ;></textarea>
+                                    <textarea type="text" name="description" id="description" class="form-control"
+                                              rows="8"
+                                              cols="20" ; ></textarea>
                                 </div>
 
                                 <button type="submit" class="btn btn-primary">Submit</button>

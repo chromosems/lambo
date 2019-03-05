@@ -65,7 +65,7 @@
             <div class="container">
                 <div class="row">
                     <div class="col-sm-4">
-                        <button href="#" class="btn btn-primary">Edit</button>
+                        <button href="{{route('cars.edit',$car->id)}}" class="btn btn-primary">Edit</button>
                     </div>
                     <div class="ml-auto">
                         <button href="#" class="btn btn-danger btn-sl m-3">Delete</button>

@@ -78,7 +78,7 @@ class CarController extends Controller
 
         $file->move('uploads/photos', $name);
 
-        $car = Car::find($id);
+        $car = Car::find($id)->first();
 
         $car->photos()->create(['path' => "/uploads/photos/{$name}"]);
     }
@@ -93,7 +93,8 @@ class CarController extends Controller
     {
         //
         $car = Car::find($id);
-        return view('car.edit', compact('car'));
+
+        return view('cars.edit', compact('car'));
 
     }
 
@@ -107,6 +108,7 @@ class CarController extends Controller
     public function update(Request $request, $id)
     {
         //
+        
     }
 
     /**
