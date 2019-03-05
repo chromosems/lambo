@@ -12,5 +12,16 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('/home');
 });
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
+
+Route::resource('/cars', 'CarController');
+
+Route::post('cars/{id}/photos', 'CarController@addPhoto');
+
+Route::get('/events', 'EventController@index');
+
