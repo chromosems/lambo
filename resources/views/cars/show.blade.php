@@ -3,6 +3,18 @@
 @section('content')
     <div class="container">
 
+    <style>
+        .uper {
+            margin-top: 40px;
+        }
+    </style>
+    <div class="uper">
+        @if(session()->get('success'))
+            <div class="alert alert-success">
+                {{ session()->get('success') }}
+            </div><br/>
+        @endif
+
         <div class="row">
             <div class="col-sm-6">
                 <button class="btn btn-success " type="button">Buy this Car</button>
@@ -65,12 +77,15 @@
             <div class="container">
                 <div class="row">
                     <div class="col-sm-4">
-                        <button href="{{action('CarController@destroy',$car->id)}}" class="btn
-                        btn-primary">Edit
-                        </button>
+                        <a href="/cars/{{$car->id}}/edit" class="button btn btn-primary">Edit
+                        </a>
                     </div>
                     <div class="ml-auto">
-                        <button href="#" class="btn btn-danger btn-sl m-3">Delete</button>
+                        <form action="{{route('cars.destroy', $car->id)}}" method="post">
+                            @csrf
+                            @method('DELETE')
+                            <button class="btn btn-danger btn-sl m-3">Delete</button>
+                        </form>
                     </div>
                 </div>
             </div>

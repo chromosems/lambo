@@ -105,10 +105,23 @@ class CarController extends Controller
      * @param  int $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(CarRequest $request, $id)
     {
         //
+        $car = Car::find($id);
+        $car->fuel = $request->get('fuel');
+        $car->car_name = $request->get('car_name');
+        $car->transmission = $request->get('transmission');
+        $car->wheel_drive = $request->get('wheel_drive');
+        $car->wheel_position = $request->get('wheel_drive');
+        $car->model = $request->get('model');
+        $car->make = $request->get('make');
+        $car->year = $request->get('year');
+        $car->amount = $request->get('amount');
+        $car->description = $request->get('description');
+        $car->save();
 
+        return redirect('/cars')->with('success', 'car has been updated');
     }
 
     /**
@@ -119,6 +132,8 @@ class CarController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $car = Car::find($id);
+        $car->delete();
+        return redirect('/cars')->with('success', 'car has been deleted');
     }
 }
