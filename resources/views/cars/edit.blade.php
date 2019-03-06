@@ -22,11 +22,7 @@
                     {{ session()->get('success') }}
                 </div><br/>
             @endif
-            <div class="ccol-sm-6 text-right">
-                <a href="{{route('cars.index')}}">
-                    <button type="button" class="btn btn-primary btn-sl m-3">View Cars</button>
-                </a>
-            </div>
+
 
             <div class="card">
                 <div class="card-body">
@@ -34,7 +30,7 @@
                     <div class="col-md-12">
 
                         <div class="container">
-                            <form action="{{route('cars.update',$car->id)}}" method="post"> @method('PATCH')
+                            <form action="{{route('cars.update',$car->id)}}" method="post"> @method('PUT')
                                 @csrf
 
 
@@ -107,10 +103,11 @@
 
                                 <div class="form-group">
                                     <label>Make</label><br>
-                                    <select id="make" name="make" class="form-control" value={{$car->make}}>
+                                    <select id="make" name="make" class="form-control">
                                         @foreach(App\Http\make\make::all() as $makes)
                                             <option value="{{$makes}}">{{$makes}}</option>
                                         @endforeach
+                                        {{$car->make}}
                                     </select>
                                 </div>
 
@@ -130,7 +127,7 @@
                                     <label>Description</label>
                                     <textarea type="text" name="description" id="description" class="form-control"
                                               rows="8"
-                                              cols="20" ; ></textarea>
+                                              cols="20" ;>{{$car->description}}</textarea>
                                 </div>
 
                                 <button type="submit" class="btn btn-primary">Submit</button>
