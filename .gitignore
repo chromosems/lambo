@@ -11,3 +11,8 @@ npm-debug.log
 yarn-error.log
 
 .idea/workspace.xml
+
+public/css/app.css
+public/js/app.js
+public/thumbnail/*
+public/uploads/*
