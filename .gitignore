@@ -16,3 +16,5 @@ public/css/app.css
 public/js/app.js
 public/thumbnail/*
 public/uploads/*
+
+composer.lock

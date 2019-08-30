@@ -16,8 +16,8 @@
 
                             <div class="col-md-6">
                                 <select id= "id_of_select" class="form-control" name="user_type" onchange="show_selected()">
-                                    <option value="admin">Admin</option>
-                                    <option value="customer">Customer</option>
+                                    <option value="admin">Buyer</option>
+                                    <option value="customer">Renter</option>
                                 </select>
 
                                 <div id="display"></div>

@@ -27,3 +27,12 @@ Route::get('/events', 'EventController@index');
 
 Route::resource('supplier', 'SupplierController');
 
+// Route::get('/home','HomeController@makeChart');
+
+// Route::get('/supplier', 'SupplierController@index');
+// Route::get('/supplier/create', 'SupplierController@create');
+// Route::post('/supplier', 'SupplierController@store');
+// Route::get('/supplier/{id}', 'SupplierController@show');
+// Route::get('/supplier/{supplier}/edit', 'SupplierController@edit');
+// Route::put('/supplier/{id}', 'SupplierController@update');
+// Route::delete('supplier/{id}','SupplierController@destroy');

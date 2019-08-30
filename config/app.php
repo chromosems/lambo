@@ -166,12 +166,10 @@ return [
         /*
          * Package Service Providers...
          */
-<<<<<<< HEAD
         MaddHatter\LaravelFullcalendar\ServiceProvider::class,
-
-=======
         Intervention\Image\ImageServiceProvider::class,
->>>>>>> created users migration
+        // ConsoleTVs\Charts\ChartsServiceProvider::class,
+
         /*
          * Application Service Providers...
          */
@@ -229,12 +227,9 @@ return [
         'URL' => Illuminate\Support\Facades\URL::class,
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View' => Illuminate\Support\Facades\View::class,
-<<<<<<< HEAD
         'Calendar' => MaddHatter\LaravelFullcalendar\Facades\Calendar::class,
-
-=======
         'Image'=>Illuminate\Image\Facades\Image::class,
->>>>>>> created users migration
+        'Charts'=>Vendor\ConsoleTVs\Charts\scr\Config\Charts::class,
 
     ],
 
